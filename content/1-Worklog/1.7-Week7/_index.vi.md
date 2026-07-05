@@ -1,59 +1,31 @@
 ---
 title: "Worklog Tuần 7"
 date: 2024-01-01
-weight: 1
+weight: 7
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 7:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Nghiên cứu kiến trúc Data Lake trên AWS và tổ chức lưu trữ dữ liệu với Amazon S3.
+* Tìm hiểu quy trình ETL/ELT, phân tích dữ liệu và Data Governance.
+* Thực hành trực quan hóa và phân tích dữ liệu với Amazon QuickSight.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------ | --------------- | -------------- |
+| 2 | Nghiên cứu kiến trúc Data Lake trên AWS; tìm hiểu lưu trữ dữ liệu tập trung bằng Amazon S3, tổ chức theo cấu trúc thư mục và phân vùng tối ưu hiệu suất | 08/06/2026 | 08/06/2026 | |
+| 3 | Thực hành xây dựng Data Lake với bộ dữ liệu mẫu; thu thập, lưu trữ và quản lý dữ liệu phục vụ nhu cầu phân tích | 09/06/2026 | 09/06/2026 | |
+| 4 | Tìm hiểu các dịch vụ phân tích dữ liệu của AWS (batch và streaming); nghiên cứu quy trình ETL/ELT, chuyển đổi và làm sạch dữ liệu | 10/06/2026 | 10/06/2026 | |
+| 5 | Tìm hiểu các nguyên tắc Data Governance: quản lý quyền truy cập, bảo mật và đảm bảo chất lượng dữ liệu trong môi trường đám mây | 11/06/2026 | 11/06/2026 | |
+| 6 | Thực hành sử dụng Amazon QuickSight để kết nối nguồn dữ liệu, xây dựng dashboard trực quan hóa và tạo báo cáo phân tích hỗ trợ ra quyết định | 12/06/2026 | 13/06/2026 | |
 
 ### Kết quả đạt được tuần 7:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Nghiên cứu kiến trúc Data Lake trên AWS; tìm hiểu cách lưu trữ dữ liệu tập trung bằng Amazon S3, tổ chức dữ liệu theo cấu trúc thư mục và phân vùng nhằm tối ưu hiệu suất truy vấn.
+* Thực hành xây dựng Data Lake với bộ dữ liệu mẫu; thực hiện thu thập, lưu trữ và quản lý dữ liệu phục vụ cho các nhu cầu phân tích.
+* Tìm hiểu các dịch vụ phân tích dữ liệu của AWS, bao gồm các giải pháp xử lý dữ liệu batch và streaming, hỗ trợ xây dựng hệ thống phân tích dữ liệu quy mô lớn.
+* Nghiên cứu quy trình ETL/ELT, cách chuyển đổi và làm sạch dữ liệu trước khi đưa vào hệ thống phân tích.
+* Tìm hiểu các nguyên tắc về Data Governance, bao gồm quản lý quyền truy cập, bảo mật dữ liệu và đảm bảo chất lượng dữ liệu trong môi trường đám mây.
+* Thực hành sử dụng Amazon QuickSight để kết nối nguồn dữ liệu, xây dựng dashboard trực quan hóa và tạo báo cáo phân tích hỗ trợ ra quyết định.

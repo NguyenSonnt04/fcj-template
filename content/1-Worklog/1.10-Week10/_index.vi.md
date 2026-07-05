@@ -1,59 +1,32 @@
 ---
 title: "Worklog Tuần 10"
 date: 2024-01-01
-weight: 2
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 10:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Thiết lập môi trường phát triển với Docker Compose và xây dựng cơ sở dữ liệu PostgreSQL.
+* Xây dựng bộ khung backend theo kiến trúc phân tầng và triển khai Repository Harness.
+* Thiết kế cơ chế soft delete, mô hình phân quyền và làm quen quy trình phát triển của nhóm.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --------- | ------------ | --------------- | -------------- |
+| 2 | Thiết lập môi trường với Docker Compose: khởi chạy đồng thời PostgreSQL, Redis, LocalStack, pgAdmin; kiểm tra trạng thái container và xác nhận kết nối cơ sở dữ liệu qua pgAdmin | 29/06/2026 | 29/06/2026 | |
+| 3 | Thiết kế cơ sở dữ liệu PostgreSQL qua migration 001_init_schema.sql; xây dựng bảng dữ liệu cốt lõi; kích hoạt extension pgcrypto và PostGIS; thiết lập migration tự động và bảng schema_migrations | 30/06/2026 | 30/06/2026 | |
+| 4 | Xây dựng bộ khung backend theo kiến trúc phân tầng với Express và Native ESModules; tổ chức mã nguồn thành config, routes, controllers, services, models và middlewares; thiết lập quy ước snake_case/camelCase | 01/07/2026 | 01/07/2026 | |
+| 5 | Nghiên cứu và triển khai Repository Harness; cài đặt Harness CLI trên Windows, khởi tạo cơ sở dữ liệu cục bộ; thực hiện truy vấn ma trận kiểm thử và hoàn thành story TB-HARNESS với trạng thái implemented | 02/07/2026 | 02/07/2026 | |
+| 6 | Nghiên cứu soft delete cho bảng nhà hàng; thiết kế bảng roles, user_roles và rank_definitions; tìm hiểu quy trình tiếp nhận tính năng mới, coding convention và cấu trúc story packet | 03/07/2026 | 03/07/2026 | |
 
 ### Kết quả đạt được tuần 10:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Thiết lập môi trường phát triển cho dự án; cài đặt và cấu hình Docker Compose để khởi chạy đồng thời PostgreSQL, Redis, LocalStack và pgAdmin; kiểm tra trạng thái hoạt động của toàn bộ container và xác nhận kết nối cơ sở dữ liệu qua pgAdmin.
+* Thiết kế cơ sở dữ liệu PostgreSQL ban đầu thông qua migration 001_init_schema.sql; xây dựng các bảng dữ liệu cốt lõi; kích hoạt các extension pgcrypto và PostGIS; thiết lập cơ chế migration tự động cùng bảng schema_migrations để quản lý phiên bản cơ sở dữ liệu.
+* Xây dựng bộ khung backend theo kiến trúc phân tầng với Express và Native ESModules; tổ chức mã nguồn thành các thư mục config, routes, controllers, services, models và middlewares; thiết lập quy ước thống nhất sử dụng snake_case cho request và camelCase cho response.
+* Nghiên cứu và triển khai hệ thống Repository Harness; cài đặt Harness CLI trên Windows và khởi tạo cơ sở dữ liệu Harness cục bộ; thực hiện truy vấn ma trận kiểm thử và hoàn thành story TB-HARNESS với trạng thái implemented.
+* Nghiên cứu cơ chế soft delete cho bảng nhà hàng; thực hiện migration bổ sung các trường is_deleted và deleted_at cho bảng restaurants.
+* Tìm hiểu mô hình phân quyền và quản lý vai trò người dùng; nghiên cứu thiết kế các bảng roles, user_roles và rank_definitions.
+* Nghiên cứu quy trình quản lý công việc và coding convention của nhóm; tìm hiểu quy trình tiếp nhận tính năng mới và cấu trúc của một story packet.

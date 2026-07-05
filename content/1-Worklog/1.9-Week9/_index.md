@@ -1,57 +1,33 @@
 ---
 title: "Week 9 Worklog"
 date: 2024-01-01
-weight: 1
+weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 9 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Study the TrustBite Review System project overview and monorepo source code structure.
+* Set up the development environment and learn the AWS services used in the project.
+* Study PostgreSQL database design, authentication mechanisms, and team development workflow.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | ---- | ---------- | --------------- | ------------------ |
+| 2 | Overview of the TrustBite Review System project: study objectives, scope, and main system functionalities to understand the product development direction | 06/22/2026 | 06/22/2026 | |
+| 3 | Read documentation and study the monorepo structure with 3 components: backend (Node.js + Express), web client (Next.js, React), and mobile (Flutter); understand REST API communication between components | 06/23/2026 | 06/23/2026 | |
+| 4 | Set up the development environment per project documentation; install Node.js, npm, Flutter, Docker, and required dependencies; build and run system components locally | 06/24/2026 | 06/24/2026 | |
+| 5 | Study AWS services used in the project (S3, Cognito, Textract, Bedrock, SES); study the Anti-Fraud Verification mechanism and PostgreSQL database design (users, restaurants, reviews, badges, price_history) | 06/25/2026 | 06/25/2026 | |
+| 6 | Study JWT authentication via AWS Cognito and API protection; get familiar with coding conventions, Pull Request process, and team testing procedures | 06/26/2026 | 06/27/2026 | |
 
 ### Week 9 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Gained an overview of the TrustBite Review System project, studying its objectives, scope, and core functionalities.
+* Read documentation and studied the monorepo source code structure with three main components: backend (Node.js + Express), web client (Next.js, React), and mobile (Flutter); understood REST API communication between components.
+* Set up the development environment per project documentation; installed required tools including Node.js, npm, Flutter, Docker, and related dependencies; built and ran system components locally.
+* Learned the AWS services used in the project: Amazon S3, Amazon Cognito, Amazon Textract, Amazon Bedrock, and Amazon SES; understood the role of each service and how to use LocalStack to simulate AWS services during development.
+* Read documentation on the Anti-Fraud Verification mechanism; learned the process from invoice intake, OCR-based information extraction, data validation, and user location verification.
+* Studied the PostgreSQL database design; read migration files and schema to understand relationships between core tables: users, restaurants, reviews, badges, and price_history.
+* Studied the authentication and authorization flow via AWS Cognito; learned how the backend validates JWT tokens and protects APIs.
+* Got familiar with the team's development workflow; read documentation on coding conventions, task management, Pull Request process, and testing procedures.
