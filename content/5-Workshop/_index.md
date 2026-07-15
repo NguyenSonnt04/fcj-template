@@ -6,30 +6,36 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-# TrustBite User Authentication with Amazon Cognito
+# AWS Integration & TrustBite Anti-Fraud Engine Workshop
 
 #### Overview
 
-In this workshop, you will build user registration, email confirmation, sign-in, and REST API protection for **TrustBite Review System** with Amazon Cognito User Pools.
+In this workshop, we will explore the system architecture design, the Harness operational workflow, how to configure AWS Cloud infrastructure, and build the automated receipt-based anti-fraud review verification engine for the **TrustBite Review System**.
 
-The mobile or web client redirects users to Cognito Managed Login using the **Authorization Code flow with PKCE**. After sign-in, the client receives tokens and sends the **access token** to the Express backend in `Authorization: Bearer <token>`. The backend uses `aws-jwt-verify` to validate the signature, expiration, user pool, app client, and `token_use` before processing the request.
+The steps cover integrating Amazon Cognito authentication, securing receipt image storage via Amazon S3, extracting document text automatically using AWS Textract OCR, analyzing fraud risk signals combined with PostGIS geography, and packaging the Node.js Express backend using Docker to run on serverless containers via AWS ECS Fargate.
 
 {{% notice info %}}
-This workshop uses **Asia Pacific (Singapore) – ap-southeast-1**. You can choose another Region, but must update the Region, User Pool ID, and App Client ID throughout the configuration.
+This workshop uses the **Asia Pacific (Singapore) – ap-southeast-1** region. You may select a different region, but must update the region, User Pool ID, and App Client ID values accordingly across all configurations.
 {{% /notice %}}
 
 #### Content
 
 1. [Architecture overview](5.1-Workshop-overview/)
-2. [Prerequisites](5.2-Prerequisites/)
-3. [Create and configure a Cognito User Pool](5.3-Cognito-user-pool/)
-4. [Integrate Cognito with the application](5.4-Application-integration/)
-5. [Security and testing](5.5-Security/)
-6. [Clean up](5.6-Cleanup/)
+2. [Harness Workflow & Standard Docs](5.2-Harness-workflow/)
+3. [Prerequisites](5.3-Prerequisites/)
+4. [Create and configure a Cognito User Pool](5.4-Cognito-user-pool/)
+5. [Integrate Cognito with the application](5.5-Application-integration/)
+6. [Receipt Processing with S3 & AWS Textract](5.6-Receipt-OCR-S3/)
+7. [Anti-Fraud Engine & Risk Scoring](5.7-Anti-Fraud-Engine/)
+8. [Security and best practices](5.8-Security/)
+9. [Clean up](5.9-Cleanup/)
+10. [Deploy the System to AWS](5.10-Deployment/)
+11. [System Screenshots](5.11-System-Screenshots/)
 
 #### Expected results
 
-- Users can register and confirm their accounts by email.
-- The application signs users in through Cognito and receives ID, access, and refresh tokens.
-- The backend allows protected API access only with a valid access token.
-- Expired tokens and tokens with invalid signatures, issuers, or app client IDs return HTTP `401`.
+- The system operates strictly under the Harness workflow standards with living documentation.
+- Users can register and confirm email accounts securely via Cognito.
+- Receipt images are stored privately in S3 and processed through automated AWS Textract OCR.
+- Reviews with receipts are assessed for fraud risk utilizing duplicate SHA-256 hash detection, GPS proximity comparisons (Haversine/PostGIS), and merchant name similarity checks (Levenshtein).
+- The backend API is packaged and deployed with high-availability under AWS ECS Fargate.

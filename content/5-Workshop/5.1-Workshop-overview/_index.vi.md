@@ -6,46 +6,42 @@ chapter: false
 pre: " <b> 5.1. </b> "
 ---
 
-#### Kiến trúc xác thực
+### 1. Kiến trúc tổng thể hệ thống TrustBite
+Hệ thống **TrustBite** được xây dựng theo mô hình **Modular Monolith** phía backend để tối ưu hóa hiệu quả triển khai, kết hợp cùng các dịch vụ Cloud Managed Services của AWS để đạt tính mở rộng và bảo mật tốt nhất.
+
+Dưới đây là sơ đồ kiến trúc tổng thể các thành phần của TrustBite:
+
+<img src="/fcj-template/images/5-Workshop/5.1-Workshop-overview/diagram2.png" alt="Kiến trúc hệ thống TrustBite trên AWS" style="width: 100%; max-width: 900px; display: block; margin: 1.5rem auto; border-radius: 6px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" />
+
+---
+
+### 2. Thành phần và vai trò trong hệ thống
+*   **Mobile App (Flutter + Dart):** Ứng dụng client chính của người dùng cuối. Hỗ trợ đăng nhập qua Cognito, duyệt tìm quán ăn theo vị trí/bản đồ, viết review và tải hóa đơn lên để kiểm định.
+*   **Admin Portal (Next.js):** Cổng quản trị dành cho kiểm duyệt viên để rà soát hàng đợi hóa đơn nghi vấn, duyệt claim nhà hàng, xem audit log hệ thống.
+*   **Express API Node.js (Backend Monolith):** Cung cấp toàn bộ REST API nghiệp vụ. Được cấu hình xử lý native ES modules gọn nhẹ.
+*   **Redis & BullMQ:** Hàng đợi tin nhắn. Chuyển các tác vụ tốn thời gian xử lý như OCR hóa đơn, phân tích chống gian lận sang worker chạy ngầm độc lập.
+*   **PostgreSQL + PostGIS:** Cơ sở dữ liệu quan hệ chính. Sử dụng extension **PostGIS** để lưu trữ và truy vấn khoảng cách không gian (Spatial Queries).
+*   **AWS Managed Services:**
+    *   **Amazon Cognito:** Đảm nhận toàn bộ quy trình đăng ký, đăng nhập và xác thực token.
+    *   **Amazon S3:** Lưu trữ ảnh hóa đơn riêng tư của người dùng.
+    *   **AWS Textract:** Trích xuất văn bản hóa đơn tự động.
+
+---
+
+### 3. Kiến trúc xác thực người dùng (Amazon Cognito Integration)
+Hành trình xác thực người dùng trong workshop được thực hiện qua luồng OIDC tiêu chuẩn:
 
 ```text
-Người dùng
-    │
-    ▼
-Ứng dụng Mobile / Web
-    │  1. Authorization Code + PKCE
-    ▼
-Amazon Cognito User Pool
-    │  2. Đăng ký, xác nhận email, đăng nhập
-    │  3. Trả về ID token, access token, refresh token
-    ▼
-Ứng dụng Mobile / Web
-    │  4. Authorization: Bearer <access_token>
-    ▼
-TrustBite Express API
-    │  5. Xác minh JWT bằng Cognito JWKS
-    ▼
-Protected API / PostgreSQL
+Người dùng ──> Mobile/Web Client ──> Cognito Managed Login (Authorization Code + PKCE)
+                                                │
+Backend API <── (Gửi Bearer Access Token) ── Client nhận Tokens (Access, ID, Refresh)
+     │
+     └──> [Xác minh JWT bằng Cognito JWKS] ──> Truy cập API được bảo vệ
 ```
 
-#### Vai trò của các thành phần
+#### Phân biệt Xác thực (Authentication) & Phân quyền (Authorization):
+*   **Authentication (Ai đang truy cập?):** Do Amazon Cognito đảm nhận. Cognito xác minh thông tin đăng nhập và phát hành JWT (JSON Web Token).
+*   **Authorization (Được phép làm gì?):** Do Express Backend của TrustBite xử lý. Sau khi giải mã và xác minh chữ ký của JWT bằng bộ khóa công khai JWKS của Cognito, backend sẽ đọc thông tin vai trò (**USER**, **MERCHANT**, **ADMIN**) và kiểm tra quyền tương ứng trước khi xử lý dữ liệu.
 
-| Thành phần | Vai trò |
-| --- | --- |
-| **Cognito User Pool** | Thư mục người dùng và OpenID Connect Identity Provider |
-| **App Client** | Cấu hình cách mobile/web giao tiếp với User Pool |
-| **Managed Login** | Giao diện đăng ký, đăng nhập, MFA và quên mật khẩu do Cognito cung cấp |
-| **Authorization Code + PKCE** | Luồng đăng nhập an toàn cho public client không thể giữ client secret |
-| **Access token** | Token được backend dùng để cấp quyền truy cập API |
-| **ID token** | Chứa thông tin định danh và thuộc tính hồ sơ người dùng |
-| **Refresh token** | Dùng để nhận token mới mà không yêu cầu đăng nhập lại |
-| **JWKS** | Bộ public key dùng để xác minh chữ ký JWT do Cognito phát hành |
-
-#### Phân biệt xác thực và phân quyền
-
-- **Authentication** xác định người dùng là ai. Cognito User Pool chịu trách nhiệm đăng ký, đăng nhập và phát hành token.
-- **Authorization** xác định người dùng được phép làm gì. Backend TrustBite kiểm tra scope, group, role và trạng thái tài khoản trước khi cho phép thực hiện nghiệp vụ.
-
-{{% notice warning %}}
-Không dùng ID token để bảo vệ REST API. API của workshop chỉ chấp nhận access token có `token_use` bằng `access`.
-{{% /notice %}}
+> [!WARNING]
+> Tuyệt đối không dùng ID token để bảo vệ REST API. Hệ thống backend TrustBite chỉ chấp nhận các access token hợp lệ có thuộc tính **token_use** bằng **access**.

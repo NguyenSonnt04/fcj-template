@@ -1,51 +1,47 @@
 ---
-title: "Architecture overview"
+title: "Architecture Overview"
 date: 2024-01-01
 weight: 1
 chapter: false
 pre: " <b> 5.1. </b> "
 ---
 
-#### Authentication architecture
+### 1. Overall TrustBite System Architecture
+The **TrustBite** backend is built as a **Modular Monolith** to optimize development and deployment overhead, combined with AWS Managed Services to achieve enterprise-grade scalability and security.
+
+Below is the overall architecture diagram of TrustBite components:
+
+<img src="/fcj-template/images/5-Workshop/5.1-Workshop-overview/diagram2.png" alt="Overall TrustBite System Architecture on AWS" style="width: 100%; max-width: 900px; display: block; margin: 1.5rem auto; border-radius: 6px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" />
+
+---
+
+### 2. Components and System Roles
+*   **Mobile App (Flutter + Dart):** The main client application for end-users. Handles Cognito authentication, map/list restaurant browsing, review creation, and receipt uploading.
+*   **Admin Portal (Next.js):** The administration portal for operators to review pending receipt verification queues, approve restaurant claims, and view system audit logs.
+*   **Node.js Express API (Backend Monolith):** Serves all business REST APIs, containerized using native ES modules.
+*   **Redis & BullMQ:** Message queueing system. Offloads long-running tasks like receipt OCR and anti-fraud analysis to a separate background worker process.
+*   **PostgreSQL + PostGIS:** The primary relational database. Leverages the **PostGIS** spatial extension to store location coordinates and run spatial distance queries.
+*   **AWS Managed Services:**
+    *   **Amazon Cognito:** User directory and identity provider managing sign-up, sign-in, and JWT token issuance.
+    *   **Amazon S3:** Private object storage for receipt images.
+    *   **AWS Textract:** Document analysis service extracting raw receipt text.
+
+---
+
+### 3. User Authentication Architecture (Amazon Cognito Integration)
+User authentication is executed using standard OpenID Connect (OIDC) flow:
 
 ```text
-User
-  │
-  ▼
-Mobile / Web Application
-  │  1. Authorization Code + PKCE
-  ▼
-Amazon Cognito User Pool
-  │  2. Sign-up, email confirmation, sign-in
-  │  3. Return ID, access, and refresh tokens
-  ▼
-Mobile / Web Application
-  │  4. Authorization: Bearer <access_token>
-  ▼
-TrustBite Express API
-  │  5. Verify JWT with Cognito JWKS
-  ▼
-Protected API / PostgreSQL
+User ──> Mobile/Web Client ──> Cognito Managed Login (Authorization Code + PKCE)
+                                          │
+Backend API <── (Send Bearer Access Token) ── Client receives tokens (Access, ID, Refresh)
+     │
+     └──> [Verify JWT with Cognito JWKS] ──> Access Protected API
 ```
 
-#### Component roles
+#### Authentication vs. Authorization:
+*   **Authentication (Who is accessing?):** Managed by Amazon Cognito. Cognito validates user credentials and issues JSON Web Tokens (JWTs).
+*   **Authorization (What are they allowed to do?):** Handled by the TrustBite Express backend. After decoding and validating the JWT signature using Cognito's JWKS public keys, the backend inspects scopes/roles (**USER**, **MERCHANT**, **ADMIN**) before resolving data requests.
 
-| Component | Role |
-| --- | --- |
-| **Cognito User Pool** | User directory and OpenID Connect identity provider |
-| **App Client** | Defines how the mobile/web application communicates with the user pool |
-| **Managed Login** | Cognito-provided sign-up, sign-in, MFA, and password recovery pages |
-| **Authorization Code + PKCE** | Secure authentication flow for public clients that cannot keep a client secret |
-| **Access token** | Token the backend uses to authorize API access |
-| **ID token** | Contains user identity and profile attributes |
-| **Refresh token** | Obtains new tokens without requiring another sign-in |
-| **JWKS** | Public keys used to verify JWT signatures issued by Cognito |
-
-#### Authentication and authorization
-
-- **Authentication** establishes who the user is. Cognito handles registration, sign-in, and token issuance.
-- **Authorization** determines what the user can do. TrustBite checks scopes, groups, roles, and account status before allowing business operations.
-
-{{% notice warning %}}
-Do not use the ID token to protect REST APIs. This workshop accepts only access tokens with `token_use` set to `access`.
-{{% /notice %}}
+> [!WARNING]
+> Do not use ID tokens to protect REST APIs. The TrustBite backend only accepts access tokens with **token_use** set to **access**.

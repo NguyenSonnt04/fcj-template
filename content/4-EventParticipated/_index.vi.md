@@ -6,41 +6,43 @@ chapter: false
 pre: " <b> 4. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+Trong suốt quá trình thực tập tại doanh nghiệp, song song với công việc chuyên môn phát triển sản phẩm **TrustBite**, mình đã được tạo điều kiện tham gia các buổi hội thảo công nghệ lớn và chuyên sâu về Điện toán đám mây (AWS Cloud) và Trí tuệ nhân tạo (AI/LLM). 
 
-> Trong phần này, các bạn cần liệt kê và mô tả chi tiết các sự kiện (event) mà mình đã tham gia trong suốt quá trình thực tập hoặc làm việc. 
-> 
-> Mỗi sự kiện nên được trình bày theo định dạng Event 1, Event 2, Event 3…, kèm theo các thông tin:
-> * Tên sự kiện
-> * Thời gian tổ chức
-> * Địa điểm (nếu có)
-> * Vai trò của bạn trong sự kiện (người tham dự, hỗ trợ tổ chức, diễn giả, v.v.)
-> * Mô tả ngắn gọn nội dung và hoạt động chính trong sự kiện
-> * Kết quả hoặc giá trị đạt được (bài học, kỹ năng mới, đóng góp cho nhóm/dự án)
-> * Việc liệt kê này giúp thể hiện rõ sự tham gia thực tế của bạn, cũng như các kỹ năng mềm và kinh nghiệm bạn đã tích lũy qua từng sự kiện.
+Dưới đây là tóm tắt tổng quan về hai sự kiện công nghệ quan trọng mà mình đã tham gia, cùng những kiến thức tích lũy được để ứng dụng vào dự án thực tế:
 
+---
 
-Trong quá trình thực tập, tôi có cơ hội tham gia các sự kiện chia sẻ kiến thức và kinh nghiệm thực tế về AI, AWS Cloud và phát triển sản phẩm. Nội dung dưới đây ghi lại chương trình, kiến thức và bài học tôi thu nhận được từ từng sự kiện.
+### 1. [Event 1 — AI, AWS Cloud và hệ thống Multi-Agent](4.1-Event1/)
 
-### [Event 1](4.1-Event1/)
-&emsp;**Tên sự kiện:** AI, AWS Cloud và hệ thống Multi-Agent
+*   **Thời gian:** 09:00 – 12:00
+*   **Vai trò:** Người tham dự
+*   **Tóm tắt nội dung chính:**
+    Hội thảo tập trung vào các kỹ thuật thiết kế context tối ưu cho LLM (Context Engineering), cách trực quan hóa dữ liệu bằng ngôn ngữ tự nhiên thông qua bộ công cụ **Amazon Quick** (Quick Chat Agent, Quick Flows, Quick Spaces), và tối ưu hóa hạ tầng phân phối nội dung an toàn hiệu năng cao bằng **Amazon CloudFront**. 
+    Đồng thời, hội thảo cũng đi sâu vào tính phi xác định (Non-Determinism) của LLM kể cả khi đặt **temperature = 0**, và mô hình kiến trúc **Multi-Agent** cấp doanh nghiệp thông qua bài toán chấm điểm tín dụng doanh nghiệp startup (**Virtual Credit Committee**).
+*   **Giá trị tích lũy:**
+    *   Hiểu rõ vai trò cốt lõi của **Context Engineering** trong việc định hình kết quả phản hồi của AI.
+    *   Nắm bắt kiến trúc phân phối nội dung từ Edge đến Origin bằng Amazon CloudFront để tối ưu chi phí và bảo vệ máy chủ gốc.
+    *   Học hỏi kinh nghiệm phát triển sản phẩm MVP dưới áp lực thời gian cao từ cuộc thi LotusHacks.
+    *   Tư duy thiết kế hệ thống Multi-Agent phân rã nhiệm vụ và thiết lập cơ chế kiểm định LLM đáng tin cậy.
 
-&emsp;**Thời gian:** 09:00 – 12:00
+---
 
-&emsp;**Nội dung chính:** Context cho AI, Amazon Quick, Amazon CloudFront, LotusHacks, tính không xác định của LLM và kiến trúc Multi-Agent
+### 2. [Event 2 — AI-Powered Cloud Operations và Enterprise Productivity](4.2-Event2/)
 
-&emsp;**Vai trò trong sự kiện:** Người tham dự 
+*   **Thời gian:** 09:00 – 11:30
+*   **Vai trò:** Người tham dự
+*   **Tóm tắt nội dung chính:**
+    Sự kiện đi sâu vào các giải pháp ứng dụng trí tuệ nhân tạo để nâng cao hiệu suất doanh nghiệp và vận hành đám mây tự động. Các chủ đề cốt lõi bao gồm **Deep Response Engine** (tự động hóa phát hiện và khắc phục sự cố Cloud nhằm giảm tối đa thời gian downtime), phát triển trợ lý giọng nói thời gian thực độ trễ thấp thông qua mô hình nền tảng **Amazon Nova Sonic**, và ứng dụng **AWS DevOps Agent** hỗ trợ vận hành đa đám mây.
+    Đặc biệt, sự kiện hướng dẫn giải pháp tích hợp và thiết lập kết nối riêng tư bảo mật qua VPC dựa trên giao thức **Model Context Protocol (MCP)** kết hợp cùng Amazon Quick để truy xuất dữ liệu doanh nghiệp an toàn.
+*   **Giá trị tích lũy:**
+    *   Tiếp cận tư duy vận hành đám mây tự động (Autonomous Cloud Operations) giúp giảm thiểu chỉ số MTTD và MTTR.
+    *   Hiểu kiến trúc xử lý truyền tải âm thanh thời gian thực (Speech-to-Speech) độ trễ thấp của AI Voice Agent.
+    *   Nắm vững cách thức hoạt động của giao thức **Model Context Protocol (MCP)** trong việc kết nối chuẩn hóa dữ liệu doanh nghiệp nội bộ với các mô hình ngôn ngữ lớn một cách an toàn.
 
+---
 
-
-### [Event 2](4.2-Event2/)
-&emsp;**Tên sự kiện:** AI-Powered Cloud Operations và Enterprise Productivity
-
-&emsp;**Thời gian:** 09:00 – 11:30
-
-&emsp;**Nội dung chính:** Autonomous incident response, Amazon Nova Sonic, AWS DevOps Agent, workforce planning với Amazon Quick và kết nối MCP riêng tư
-
-&emsp;**Vai trò trong sự kiện:** Người tham dự
-
+### 3. Tổng kết và Khả năng áp dụng vào thực tế
+Việc tham gia hai sự kiện công nghệ chuyên sâu này đã giúp mình tích lũy được nhiều tư duy thiết kế hệ thống hiện đại. Cụ thể, mình đã ứng dụng trực tiếp các kiến thức này vào quá trình phát triển sản phẩm thực tập **TrustBite**:
+1.  **Thiết kế Prompt & Context có cấu trúc:** Áp dụng phương pháp Context Engineering để tối ưu cấu trúc prompt và context đầu vào cho AI Agent chạy OCR và chống gian lận.
+2.  **Thiết kế bộ lọc chấm điểm rủi ro chống gian lận:** Hiểu rõ tính phi xác định của LLM giúp mình thiết lập thuật toán chấm điểm rủi ro (Risk Scoring) và sử dụng khoảng cách tương đối Levenshtein thay vì so khớp tuyệt đối để hệ thống ra quyết định thông minh hơn.
+3.  **Tư duy phát triển MVP gọn nhẹ:** Áp dụng quy tắc rút gọn phạm vi tính năng từ bài học LotusHacks để tập trung phát triển và hoàn thiện luồng S3 Upload -> OCR Textract -> Chống gian lận cốt lõi của TrustBite đúng hạn.
