@@ -1,57 +1,30 @@
 ---
 title: "Week 11 Worklog"
 date: 2024-01-01
-weight: 2
+weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 11 Objectives
 
-### Week 11 Objectives:
-
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+- Complete tests for JWT authentication and user-related APIs.
+- Build GPS proximity verification for the TrustBite anti-fraud mechanism.
+- Upgrade CI to run database migrations and the complete test suite automatically.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | ---- | ---------- | --------------- | ------------------ |
+| 2 | **Cognito JWT Unit Tests**<br>- Studied how `CognitoIdentityProvider` validates and decodes JWTs issued by Amazon Cognito.<br>- Wrote unit tests for valid, expired, and truncated tokens.<br>- Created an in-memory RSA JWT helper so tests could run independently without connecting to Cognito. | 07/06/2026 | 07/06/2026 |  |
+| 3 | **Invalid JWT Scenarios**<br>- Added tests for incorrect `issuer`, incorrect `client_id`, and invalid signatures.<br>- Verified provider error codes and behavior for untrusted tokens.<br>- Refactored the token helper so each test could customize payload, expiration, issuer, client, and signing key. | 07/07/2026 | 07/07/2026 |  |
+| 4 | **Login and User Profile Integration Tests**<br>- Wrote Express integration tests for login and user profile retrieval.<br>- Tested valid users, users with the `SUSPENDED` status, and requests without tokens.<br>- Used a trusted-local header to simulate identity in tests instead of relying on a real Cognito environment. | 07/08/2026 | 07/08/2026 |  |
+| 5 | **GPS Proximity Service**<br>- Built `server/src/services/verification/gpsProximityService.js` to calculate user-to-restaurant distance with the Haversine formula.<br>- Returned distance in meters and a pass/fail result against a configurable threshold.<br>- Added validation for latitude, longitude, and threshold values.<br>- Created `server/src/config/antiFraud.js` with a 200-meter default threshold overridable through `GPS_PROXIMITY_THRESHOLD_METERS`. | 07/09/2026 | 07/09/2026 |  |
+| 6 | **GPS Tests and CI Upgrade**<br>- Wrote 13 GPS unit tests covering zero distance, inside, outside, exact-boundary, and invalid-input cases.<br>- Ran `npm run test:unit --prefix server` and confirmed all 80 tests passed.<br>- Helped update GitHub Actions to run database migrations and the complete Vitest suite instead of syntax checks only.<br>- Updated the test factory helper to support more flexible test data creation. | 07/10/2026 | 07/10/2026 |  |
 
-### Week 11 Achievements:
+### Week 11 Results
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+- Completed `CognitoIdentityProvider` unit tests and login/profile integration tests.
+- Built the GPS Proximity Service with configurable thresholds and input validation.
+- Completed 13 GPS cases and reached 80 passing unit tests.
+- Upgraded CI to validate migrations and the test suite in GitHub Actions.

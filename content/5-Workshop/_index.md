@@ -5,27 +5,31 @@ weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Secure Hybrid Access to S3 using VPC Endpoints
+# TrustBite User Authentication with Amazon Cognito
 
 #### Overview
 
-**AWS PrivateLink** provides private connectivity to AWS services from VPCs and your on-premises networks, without exposing your traffic to the Public Internet.
+In this workshop, you will build user registration, email confirmation, sign-in, and REST API protection for **TrustBite Review System** with Amazon Cognito User Pools.
 
-In this lab, you will learn how to create, configure, and test VPC endpoints that enable your workloads to reach AWS services without traversing the Public Internet.
+The mobile or web client redirects users to Cognito Managed Login using the **Authorization Code flow with PKCE**. After sign-in, the client receives tokens and sends the **access token** to the Express backend in `Authorization: Bearer <token>`. The backend uses `aws-jwt-verify` to validate the signature, expiration, user pool, app client, and `token_use` before processing the request.
 
-You will create two types of endpoints to access Amazon S3: a Gateway VPC endpoint, and an Interface VPC endpoint. These two types of VPC endpoints offer different benefits depending on if you are accessing Amazon S3 from the cloud or your on-premises location
-+ **Gateway** - Create a gateway endpoint to send traffic to Amazon S3 or DynamoDB using private IP addresses.You route traffic from your VPC to the gateway endpoint using route tables.
-+ **Interface** - Create an interface endpoint to send traffic to endpoint services that use a Network Load Balancer to distribute traffic. Traffic destined for the endpoint service is resolved using DNS.
+{{% notice info %}}
+This workshop uses **Asia Pacific (Singapore) – ap-southeast-1**. You can choose another Region, but must update the Region, User Pool ID, and App Client ID throughout the configuration.
+{{% /notice %}}
 
 #### Content
 
-1. [Workshop overview](5.1-Workshop-overview)
-2. [Prerequiste](5.2-Prerequiste/)
-3. [Access S3 from VPC](5.3-S3-vpc/)
-4. [Access S3 from On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (Bonus)](5.5-Policy/)
+1. [Architecture overview](5.1-Workshop-overview/)
+2. [Prerequisites](5.2-Prerequisites/)
+3. [Create and configure a Cognito User Pool](5.3-Cognito-user-pool/)
+4. [Integrate Cognito with the application](5.4-Application-integration/)
+5. [Security and testing](5.5-Security/)
 6. [Clean up](5.6-Cleanup/)
+
+#### Expected results
+
+- Users can register and confirm their accounts by email.
+- The application signs users in through Cognito and receives ID, access, and refresh tokens.
+- The backend allows protected API access only with a valid access token.
+- Expired tokens and tokens with invalid signatures, issuers, or app client IDs return HTTP `401`.

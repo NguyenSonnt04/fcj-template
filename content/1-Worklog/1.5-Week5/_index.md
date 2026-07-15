@@ -6,28 +6,24 @@ chapter: false
 pre: " <b> 1.5. </b> "
 ---
 
-### Week 5 Objectives:
+### Week 5 Objectives
 
-* Migrate a Java Spring Boot application from Monolithic to Microservices architecture.
-* Build asynchronous communication with SQS/SNS and deploy Serverless applications with Lambda.
-* Set up CI/CD and monitor distributed systems with CloudWatch and X-Ray.
+- Transform a Spring Boot monolith into microservices.
+- Build synchronous, asynchronous, and serverless workflows on AWS.
+- Configure authentication, CI/CD, and observability for a distributed system.
 
 ### Tasks to be carried out this week:
+
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | ---- | ---------- | --------------- | ------------------ |
-| 2 | Migrate Java Spring Boot application from Monolithic to Microservices architecture; decompose functional components and build independent services for each business domain | 05/25/2026 | 05/25/2026 | |
-| 3 | Build and deploy APIs for inter-Microservice communication; verify data processing flows and the independence of each service | 05/26/2026 | 05/26/2026 | |
-| 4 | Configure asynchronous messaging with Amazon SQS and Amazon SNS; deploy a Serverless application using AWS Lambda with API Gateway, S3, and DynamoDB | 05/27/2026 | 05/27/2026 | |
-| 5 | Set up authentication and authorization with Amazon Cognito for a SPA; build a CI/CD pipeline with AWS CodePipeline | 05/28/2026 | 05/28/2026 | |
-| 6 | Configure monitoring with Amazon CloudWatch and AWS X-Ray; practice Step Functions and integrate AWS AppSync with GraphQL | 05/29/2026 | 05/30/2026 | |
+| 2 | **Monolith and Microservices Analysis**<br>- Analyzed the business modules in the existing Java Spring Boot application.<br>- Identified service boundaries and separated functional components into independent services.<br>- Standardized configuration and data requirements for independent operation. | 05/25/2026 | 05/25/2026 |  |
+| 3 | **APIs and Service Communication**<br>- Built REST APIs for communication between microservices.<br>- Tested data flows, error codes, and the independent behavior of each service.<br>- Configured Amazon SQS and SNS for asynchronous communication and tested the event flow. | 05/26/2026 | 05/26/2026 |  |
+| 4 | **Serverless Application**<br>- Developed AWS Lambda functions for business and data processing.<br>- Combined API Gateway, S3, and DynamoDB into a serverless workflow.<br>- Tested requests, responses, IAM permissions, and data access. | 05/27/2026 | 05/27/2026 |  |
+| 5 | **Authentication and Automated Delivery**<br>- Configured Amazon Cognito for a Single Page Application.<br>- Tested registration, login, token issuance, and session management.<br>- Built a CodePipeline workflow for automated build, test, and deployment. | 05/28/2026 | 05/28/2026 |  |
+| 6 | **Workflow and Observability**<br>- Built a business workflow with Step Functions and monitored each state.<br>- Explored AppSync and integrated a GraphQL API.<br>- Configured CloudWatch and X-Ray for logs, request tracing, and performance troubleshooting. | 05/29/2026 | 05/29/2026 |  |
 
-### Week 5 Achievements:
+### Week 5 Results
 
-* Migrated Java Spring Boot application from Monolithic to Microservices architecture; decomposed functional components into independent services.
-* Built and deployed APIs for inter-Microservice communication; verified data processing flows and service independence.
-* Configured asynchronous messaging between system components using Amazon SQS and Amazon SNS; tested event processing in a distributed environment.
-* Deployed a Serverless application using AWS Lambda with API Gateway, S3, and DynamoDB.
-* Set up authentication and authorization with Amazon Cognito for a Single Page Application (SPA); verified login flows and session management.
-* Built a CI/CD pipeline with AWS CodePipeline to automate build, testing, and deployment.
-* Configured monitoring with Amazon CloudWatch and AWS X-Ray; analyzed logs, tracked performance, and resolved issues.
-* Practiced building business workflows with AWS Step Functions and integrated AWS AppSync for GraphQL APIs.
+- Practiced decomposing a monolith into independent microservices.
+- Implemented REST and SQS/SNS communication and a serverless workflow with Lambda, API Gateway, S3, and DynamoDB.
+- Configured Cognito, CodePipeline, Step Functions, AppSync, CloudWatch, and X-Ray.

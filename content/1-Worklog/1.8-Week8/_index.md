@@ -6,27 +6,24 @@ chapter: false
 pre: " <b> 1.8. </b> "
 ---
 
-### Week 8 Objectives:
+### Week 8 Objectives
 
-* Study AI/ML services and Generative AI on AWS.
-* Learn Computer Vision, NLP, and building Custom Machine Learning Models.
-* Study the MLOps process and Responsible AI principles.
+- Study AI/ML and Generative AI services on AWS.
+- Learn Computer Vision, NLP, and the Machine Learning lifecycle.
+- Understand MLOps and Responsible AI principles.
 
 ### Tasks to be carried out this week:
+
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | ---- | ---------- | --------------- | ------------------ |
-| 2 | Study AI and Machine Learning services on AWS; learn how to apply AI/ML to build intelligent systems that solve real-world problems | 06/15/2026 | 06/15/2026 | |
-| 3 | Study Foundation Models and Generative AI on AWS; practice leveraging LLMs to develop content generation and intelligent interaction applications | 06/16/2026 | 06/16/2026 | |
-| 4 | Study Computer Vision solutions: image/video analysis, object detection; study NLP: text analysis, sentiment evaluation, and natural language processing | 06/17/2026 | 06/17/2026 | |
-| 5 | Practice building and managing Custom Machine Learning Models; learn the development, training, deployment, and optimization lifecycle | 06/18/2026 | 06/18/2026 | |
-| 6 | Study MLOps processes; learn Responsible AI principles: bias detection, model explainability, and ensuring transparent AI development | 06/19/2026 | 06/20/2026 | |
+| 2 | **AI/ML on AWS**<br>- Reviewed AI, Machine Learning, and Deep Learning concepts.<br>- Explored managed AI/ML service categories and their use cases on AWS.<br>- Analyzed how to select a service for a practical problem. | 06/15/2026 | 06/15/2026 |  |
+| 3 | **Foundation Models and Generative AI**<br>- Studied Foundation Models, Large Language Models, and Generative AI fundamentals.<br>- Explored using foundation models on AWS for content generation and intelligent interaction.<br>- Practiced prompt design, response evaluation, and identifying model limitations. | 06/16/2026 | 06/16/2026 |  |
+| 4 | **Computer Vision and NLP**<br>- Studied image and video analysis, object detection, and information extraction.<br>- Learned text analysis, sentiment analysis, and natural language processing use cases.<br>- Compared inputs, outputs, and evaluation criteria for Computer Vision and NLP. | 06/17/2026 | 06/17/2026 |  |
+| 5 | **Custom ML Models**<br>- Studied data preparation, training, evaluation, and model deployment.<br>- Learned model versioning and training metric monitoring.<br>- Evaluated optimization options for performance, accuracy, and cost. | 06/18/2026 | 06/18/2026 |  |
+| 6 | **MLOps and Responsible AI**<br>- Studied automated model build, test, deployment, and monitoring workflows.<br>- Learned about model drift, explainability, and ML lifecycle management.<br>- Reviewed bias detection, data protection, and transparent and responsible AI development. | 06/19/2026 | 06/19/2026 |  |
 
-### Week 8 Achievements:
+### Week 8 Results
 
-* Studied AI and Machine Learning services on AWS; learned how to apply AI/ML to build intelligent systems that solve real-world problems.
-* Learned Foundation Models and Generative AI on AWS; practiced leveraging LLMs to develop content generation, automation support, and intelligent interaction applications.
-* Studied Computer Vision solutions; performed image and video analysis, object detection, and information extraction for visual data processing.
-* Learned Natural Language Processing (NLP) techniques; performed text analysis, sentiment evaluation, and natural language processing to enhance system-user interaction.
-* Practiced building and managing Custom Machine Learning Models; learned the full ML lifecycle including development, training, deployment, and optimization.
-* Studied MLOps processes; learned deployment methods, model monitoring, and continuous integration to ensure stable and scalable AI/ML systems.
-* Learned Responsible AI principles; studied bias detection methods, model explainability, and ensuring transparent, safe, and accountable AI development.
+- Understood AWS AI/ML services, Foundation Models, and Generative AI.
+- Learned Computer Vision, NLP, and custom model development workflows.
+- Recognized the importance of MLOps, model monitoring, and Responsible AI.

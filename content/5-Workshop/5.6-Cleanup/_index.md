@@ -1,32 +1,48 @@
 ---
-title : "Clean up"
-date : 2024-01-01
-weight : 6
-chapter : false
-pre : " <b> 5.6. </b> "
+title: "Clean up"
+date: 2024-01-01
+weight: 6
+chapter: false
+pre: " <b> 5.6. </b> "
 ---
-Congratulations on completing this workshop! 
-In this workshop, you learned architecture patterns for accessing Amazon S3 without using the Public Internet. 
-+ By creating a gateway endpoint, you enabled direct communication between EC2 resources and Amazon S3, without traversing an Internet Gateway. 
-+ By creating an interface endpoint you extended S3 connectivity to resources running in your on-premises data center via AWS Site-to-Site VPN or Direct Connect. 
 
-#### clean up
-1. Navigate to Hosted Zones on the left side of Route 53 console. Click the name of *s3.us-east-1.amazonaws.com* zone. Click Delete and confirm deletion by typing delete. 
+#### Workshop summary
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/delete-zone.png)
+You completed the TrustBite authentication flow with Amazon Cognito:
 
-2. Disassociate the Route 53 Resolver Rule - myS3Rule from "VPC Onprem" and Delete it. 
+- Created a User Pool, App Client, and Cognito domain.
+- Enabled registration and email confirmation.
+- Used Authorization Code + PKCE for mobile/web clients.
+- Verified access tokens in the Express backend.
+- Protected APIs and tested invalid-token scenarios.
+- Applied token security and authorization practices.
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/vpc.png)
+#### Delete the User Pool
 
-4. Open the CloudFormation console  and delete the two CloudFormation Stacks that you created for this lab:
-+ PLOnpremSetup
-+ PLCloudSetup
+If this is a lab environment that is no longer required:
 
-![delete stack](/images/5-Workshop/5.6-Cleanup/delete-stack.png)
+1. Open the Amazon Cognito Console in the correct Region.
+2. Select `trustbite-users-dev`.
+3. Confirm that no real applications or users depend on it.
+4. Choose **Delete user pool**.
+5. Enter the User Pool name to confirm deletion.
 
-5. Delete S3 buckets
-+ Open S3 console
-+ Choose the bucket we created for the lab, click and confirm empty. Click delete and confirm delete.
+Deleting the User Pool removes its users, App Clients, domain, and related configuration. This action cannot be undone.
 
-![delete s3](/images/5-Workshop/5.6-Cleanup/delete-s3.png)
+#### Clean up the local application
+
+- Delete access, ID, and refresh tokens from secure storage.
+- Remove real values from `.env`; keep `.env.example` if it is useful documentation.
+- Stop the backend and unused local services.
+- Remove lab callback URLs from production configurations.
+- Check Git history to confirm that no token or secret was committed.
+
+#### Final checks
+
+- The old Cognito domain should stop working after resource deletion completes.
+- The backend should fail to start when required environment variables are missing.
+- Tokens issued by the deleted User Pool should no longer be trusted by the backend.
+
+{{% notice warning %}}
+Never delete a production User Pool or a resource used by a real application. Back up required data and verify dependencies before deletion.
+{{% /notice %}}

@@ -1,37 +1,48 @@
 ---
-title : "Dọn dẹp tài nguyên"
-date : 2024-01-01
-weight : 6
-chapter : false
-pre : " <b> 5.6. </b> "
+title: "Dọn dẹp tài nguyên"
+date: 2024-01-01
+weight: 6
+chapter: false
+pre: " <b> 5.6. </b> "
 ---
 
-#### Dọn dẹp tài nguyên
+#### Tổng kết workshop
 
-Xin chúc mừng bạn đã hoàn thành xong lab này!
-Trong lab này, bạn đã học về các mô hình kiến trúc để truy cập Amazon S3 mà không sử dụng Public Internet.
+Bạn đã hoàn thành luồng xác thực TrustBite bằng Amazon Cognito:
 
-+ Bằng cách tạo Gateway endpoint, bạn đã cho phép giao tiếp trực tiếp giữa các tài nguyên EC2 và Amazon S3, mà không đi qua Internet Gateway.
-Bằng cách tạo Interface endpoint, bạn đã mở rộng kết nối S3 đến các tài nguyên chạy trên trung tâm dữ liệu trên chỗ của bạn thông qua AWS Site-to-Site VPN hoặc Direct Connect.
+- Tạo User Pool, App Client và Cognito domain.
+- Bật đăng ký và xác nhận email.
+- Sử dụng Authorization Code + PKCE cho mobile/web.
+- Xác minh access token tại Express backend.
+- Bảo vệ API và kiểm tra các trường hợp token không hợp lệ.
+- Áp dụng các nguyên tắc bảo mật token và authorization.
 
-#### Dọn dẹp
-1. Điều hướng đến Hosted Zones trên phía trái của bảng điều khiển Route 53. Nhấp vào tên của  s3.us-east-1.amazonaws.com zone. Nhấp vào Delete và xác nhận việc xóa bằng cách nhập từ khóa "delete".
+#### Dọn dẹp User Pool
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/delete-zone.png)
+Nếu đây chỉ là môi trường lab và không còn sử dụng:
 
-2. Disassociate Route 53 Resolver Rule - myS3Rule from "VPC Onprem" and Delete it. 
+1. Mở Amazon Cognito Console tại đúng Region.
+2. Chọn User Pool `trustbite-users-dev`.
+3. Kiểm tra không có ứng dụng hoặc người dùng thật phụ thuộc vào User Pool.
+4. Chọn **Delete user pool**.
+5. Nhập tên User Pool để xác nhận xóa.
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/vpc.png)
+Xóa User Pool sẽ xóa người dùng, App Client, domain và cấu hình liên quan. Thao tác này không thể hoàn tác.
 
-4.Mở console của CloudFormation và xóa hai stack CloudFormation mà bạn đã tạo cho bài thực hành này:
-+ PLOnpremSetup
-+ PLCloudSetup
+#### Dọn dẹp ứng dụng local
 
-![delete stack](/images/5-Workshop/5.6-Cleanup/delete-stack.png)
+- Xóa access, ID và refresh token khỏi secure storage.
+- Xóa các giá trị thật khỏi `.env`; giữ `.env.example` nếu cần tài liệu cấu hình.
+- Dừng backend và các dịch vụ local không còn sử dụng.
+- Xóa callback URL thử nghiệm khỏi cấu hình production.
+- Kiểm tra Git history để chắc chắn không có token hoặc secret bị commit.
 
-5. Xóa các S3 bucket
+#### Kiểm tra cuối
 
-+ Mở bảng điều khiển S3
-+ Chọn bucket chúng ta đã tạo cho lab, nhấp chuột và xác nhận là empty. Nhấp Delete và xác nhận delete.
-+ 
-![delete s3](/images/5-Workshop/5.6-Cleanup/delete-s3.png)
+- Truy cập Cognito domain cũ phải không còn hoạt động sau khi tài nguyên bị xóa hoàn toàn.
+- Backend không khởi động nếu thiếu biến môi trường bắt buộc.
+- Token đã phát hành từ User Pool bị xóa không còn được backend tin cậy.
+
+{{% notice warning %}}
+Không xóa User Pool production hoặc tài nguyên đang được ứng dụng thật sử dụng. Luôn sao lưu dữ liệu cần thiết và xác nhận dependency trước khi xóa.
+{{% /notice %}}

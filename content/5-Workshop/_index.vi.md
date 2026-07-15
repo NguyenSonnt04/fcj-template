@@ -6,28 +6,30 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-
-# Đảm bảo truy cập Hybrid an toàn đến S3 bằng cách sử dụng VPC endpoint
+# Xác thực người dùng TrustBite bằng Amazon Cognito
 
 #### Tổng quan
 
-**AWS PrivateLink** cung cấp kết nối riêng tư đến các dịch vụ aws từ VPCs hoặc trung tâm dữ liệu (on-premise) mà không làm lộ lưu lượng truy cập ra ngoài public internet.
+Trong workshop này, chúng ta sẽ xây dựng luồng đăng ký, xác nhận email, đăng nhập và bảo vệ REST API cho **TrustBite Review System** bằng Amazon Cognito User Pools.
 
-Trong bài lab này, chúng ta sẽ học cách tạo, cấu hình, và kiểm tra VPC endpoints để cho phép workload của bạn tiếp cận các dịch vụ AWS mà không cần đi qua Internet công cộng.
+Ứng dụng mobile hoặc web chuyển người dùng đến Cognito Managed Login bằng luồng **Authorization Code với PKCE**. Sau khi đăng nhập, client nhận token và gửi **access token** trong header `Authorization: Bearer <token>` đến backend Express. Backend sử dụng `aws-jwt-verify` để kiểm tra chữ ký, thời hạn, User Pool, App Client và `token_use` trước khi xử lý request.
 
-Chúng ta sẽ tạo hai loại endpoints để truy cập đến Amazon S3: gateway vpc endpoint và interface vpc endpoint. Hai loại vpc endpoints này mang đến nhiều lợi ích tùy thuộc vào việc bạn truy cập đến S3 từ môi trường cloud hay từ trung tâm dữ liệu (on-premise).
-+ **Gateway** - Tạo gateway endpoint để gửi lưu lượng đến Amazon S3 hoặc DynamoDB using private IP addresses. Bạn điều hướng lưu lượng từ VPC của bạn đến gateway endpoint bằng các bảng định tuyến (route tables)
-+ **Interface** - Tạo interface endpoint để gửi lưu lượng đến các dịch vụ điểm cuối (endpoints) sử dụng Network Load Balancer để phân phối lưu lượng. Lưu lượng dành cho dịch vụ điểm cuối được resolved bằng DNS.
+{{% notice info %}}
+Workshop sử dụng Region **Asia Pacific (Singapore) – ap-southeast-1**. Bạn có thể chọn Region khác nhưng phải thay giá trị Region, User Pool ID và App Client ID trong toàn bộ cấu hình.
+{{% /notice %}}
 
 #### Nội dung
 
-1. [Tổng quan về workshop](5.1-Workshop-overview/)
-2. [Chuẩn bị](5.2-Prerequiste/)
-3. [Truy cập đến S3 từ VPC](5.3-S3-vpc/)
-4. [Truy cập đến S3 từ TTDL On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
+1. [Tổng quan kiến trúc](5.1-Workshop-overview/)
+2. [Chuẩn bị môi trường](5.2-Prerequisites/)
+3. [Tạo và cấu hình Cognito User Pool](5.3-Cognito-user-pool/)
+4. [Tích hợp Cognito vào ứng dụng](5.4-Application-integration/)
+5. [Bảo mật và kiểm thử](5.5-Security/)
 6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
+
+#### Kết quả mong đợi
+
+- Người dùng có thể đăng ký và xác nhận tài khoản bằng email.
+- Ứng dụng đăng nhập qua Cognito và nhận ID, access, refresh token.
+- Backend chỉ cho phép request có access token hợp lệ truy cập API được bảo vệ.
+- Token hết hạn, sai chữ ký, sai issuer hoặc sai App Client ID đều bị từ chối với HTTP `401`.

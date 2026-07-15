@@ -22,25 +22,25 @@ pre: " <b> 4. </b> "
 > * Việc liệt kê này giúp thể hiện rõ sự tham gia thực tế của bạn, cũng như các kỹ năng mềm và kinh nghiệm bạn đã tích lũy qua từng sự kiện.
 
 
-Trong quá trình thực tập, em đã tham gia 2 events, với mỗi event là một trải nghiệm đáng nhớ với những kiến thức mới, hay và bổ ích, cùng với đó là nhứng món quà và những khoảnh khắc rất tuyệt vời.
+Trong quá trình thực tập, tôi có cơ hội tham gia các sự kiện chia sẻ kiến thức và kinh nghiệm thực tế về AI, AWS Cloud và phát triển sản phẩm. Nội dung dưới đây ghi lại chương trình, kiến thức và bài học tôi thu nhận được từ từng sự kiện.
 
 ### [Event 1](4.1-Event1/)
-&emsp;**Tên sự kiện:** GenAI-powered App-DB Modernization workshop
+&emsp;**Tên sự kiện:** AI, AWS Cloud và hệ thống Multi-Agent
 
-&emsp;**Thời gian:** 09:00 ngày 13/08/2025
+&emsp;**Thời gian:** 09:00 – 12:00
 
-&emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh
+&emsp;**Nội dung chính:** Context cho AI, Amazon Quick, Amazon CloudFront, LotusHacks, tính không xác định của LLM và kiến trúc Multi-Agent
 
 &emsp;**Vai trò trong sự kiện:** Người tham dự 
 
 
 
 ### [Event 2](4.2-Event2/)
-&emsp;**Tên sự kiện:** GenAI-powered App-DB Modernization workshop
+&emsp;**Tên sự kiện:** AI-Powered Cloud Operations và Enterprise Productivity
 
-&emsp;**Thời gian:** 09:00 ngày 13/08/2025
+&emsp;**Thời gian:** 09:00 – 11:30
 
-&emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh
+&emsp;**Nội dung chính:** Autonomous incident response, Amazon Nova Sonic, AWS DevOps Agent, workforce planning với Amazon Quick và kết nối MCP riêng tư
 
-&emsp;**Vai trò trong sự kiện:** Người tham dự 
+&emsp;**Vai trò trong sự kiện:** Người tham dự
 
