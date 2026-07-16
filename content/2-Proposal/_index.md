@@ -89,12 +89,12 @@ Verification results are aggregated into a **Trust Score** — a confidence indi
 
 | Phase | Content | Timeline |
 | --- | --- | --- |
-| **Week 1–2** | Architecture research, codebase familiarization, local environment setup (Docker Compose: PostgreSQL, Redis, LocalStack) | Month 1 |
-| **Week 3–4** | Backend framework, database schema design (001_init_schema.sql), Harness deployment | Month 1 |
-| **Week 5–6** | Authentication flow (Cognito + OTP SMS), restaurant API, user management | Month 2 |
-| **Week 7–8** | Review submission flow, receipt upload to S3, OCR worker with Textract | Month 2 |
-| **Week 9–10** | Anti-fraud verification (hash check, GPS proximity, merchant matching), Trust Score | Month 3 |
-| **Week 11–12** | Admin portal, integration testing, CI/CD pipeline, staging deployment | Month 3 |
+| **Week 1** | Architecture research, codebase familiarization, local environment setup (Docker Compose: PostgreSQL, Redis, LocalStack), and DB schema design. | Month 1 |
+| **Week 2** | Harness workflow deployment, backend framework setup, and Amazon Cognito User Pool creation. | Month 1 |
+| **Week 3** | Cognito authentication integration (JWT Middleware), building restaurant APIs and user management. | Month 1 |
+| **Week 4** | Review submission flow, integrating receipt image upload to S3, and asynchronous OCR extraction worker with AWS Textract. | Month 1 |
+| **Week 5** | Anti-fraud engine verification implementation (duplicate SHA-256 hash checks, GPS proximity Haversine checks, Levenshtein merchant name matching), and Trust Score calculations. | Month 2 |
+| **Week 6** | Completing Admin Portal UI integration, end-to-end integration testing, and container deployment on AWS ECS Fargate. | Month 2 |
 
 #### Technical Requirements
 
