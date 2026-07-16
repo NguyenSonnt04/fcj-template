@@ -127,17 +127,24 @@ Verification results are aggregated into a **Trust Score** — a confidence indi
 
 ### 5. Timeline & Milestones
 
-```
-Month 1:  [Environment] → [Database schema] → [Backend framework] → [Harness setup]
-Month 2:  [Auth flow] → [Restaurant API] → [Review submission] → [S3 + OCR]
-Month 3:  [Anti-fraud] → [Trust Score] → [Admin portal] → [CI/CD] → [Staging]
-Post-MVP: [AI summarization (Bedrock)] → [Merchant portal] → [Store release]
-```
+*   **Month 1 (Weeks 1–4):** **Platform Integration & Initialization**
+    *   Local environment setup (Docker Compose) & DB schema design.
+    *   Harness workflow deployment & backend framework setup.
+    *   Cognito authentication integration & building user/restaurant APIs.
+    *   Integrating receipt uploads to S3 & automated OCR extraction via AWS Textract.
+*   **Month 2 (Weeks 5–6):** **Anti-Fraud Engine & AWS Deployment**
+    *   Implementing anti-fraud verification logic & automated Trust Score calculation.
+    *   Completing Admin Portal UI integration.
+    *   End-to-end integration testing & Docker container deployment on AWS ECS Fargate.
+*   **Post-MVP:** **Feature Expansion**
+    *   AI-powered review summarization utilizing Amazon Bedrock.
+    *   Building the Merchant Portal for restaurant owners.
+    *   Publishing applications to App Store & Google Play.
 
 **Checkpoints:**
-- **End of Month 1**: Database migration works, API skeleton runs, local environment stable.
-- **End of Month 2**: Users can register/login, create reviews, upload receipts to S3.
-- **End of Month 3**: OCR worker operational, Trust Score computed automatically, Admin portal can process reviews.
+- **Week 2**: Stable local environment, database schema initialized, and Harness workflow completed.
+- **Week 4**: User signup/login via Cognito functional, review posting, and S3 OCR receipt upload integrated.
+- **Week 6**: Anti-fraud automated Trust Score engine working accurately, Admin Portal processing reviews smoothly, and AWS ECS Fargate deployment complete.
 
 ---
 
