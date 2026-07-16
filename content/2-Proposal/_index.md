@@ -56,23 +56,7 @@ Verification results are aggregated into a **Trust Score** — a confidence indi
 
 #### Overall Architecture Diagram
 
-```
-[Mobile App (Flutter)]  [Admin/Merchant Web (Next.js)]
-          │                          │
-          └──────────────────────────┘
-                         │
-              [CloudFront / CDN]
-                         │
-          [Express API Container – ECS Fargate]
-           │          │           │          │
-     [RDS PostgreSQL] [ElastiCache Redis] [S3 Bucket]
-           │                │           │
-     [PostGIS]         [BullMQ]    [Textract OCR]
-                            │
-                    [OCR/Fraud Worker]
-                     │           │
-               [S3 Receipt]  [RDS Update]
-```
+<img src="/fcj-template/images/2-Proposal/aws_architecture.png" alt="AWS Solution Architecture Diagram" style="width: 100%; max-width: 900px; display: block; margin: 1.5rem auto; border-radius: 6px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" />
 
 #### AWS Services Used
 
