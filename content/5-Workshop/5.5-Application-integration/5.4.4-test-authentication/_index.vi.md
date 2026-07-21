@@ -1,6 +1,5 @@
 ---
 title: "Kiểm tra luồng xác thực"
-date: 2024-01-01
 weight: 4
 chapter: false
 pre: " <b> 5.5.4. </b> "
@@ -12,6 +11,10 @@ pre: " <b> 5.5.4. </b> "
 2. Chọn đăng ký và nhập email, password hợp lệ.
 3. Kiểm tra hộp thư và nhập mã xác nhận.
 4. Trong Cognito Console, mở **Users** và xác nhận trạng thái người dùng là `CONFIRMED`.
+
+<img src="/fcj-template/images/5-Workshop/5.4-Cognito-user-pool/09-cognito-confirmed-users.png" alt="Danh sách người dùng Cognito đã xác minh email và có trạng thái Confirmed, Enabled" style="width: 100%; max-width: 1200px; display: block; margin: 1.5rem auto; border-radius: 6px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);" />
+
+<p style="text-align: center; margin-top: -0.75rem;"><em>Điểm kiểm tra: các tài khoản thử nghiệm đã xác minh email, có trạng thái Confirmed và đang Enabled.</em></p>
 
 #### Bước 2: Đăng nhập và lấy access token
 

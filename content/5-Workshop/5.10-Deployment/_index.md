@@ -1,6 +1,5 @@
 ---
 title: "Deploy the System to AWS"
-date: 2024-01-01
 weight: 10
 chapter: false
 pre: " <b> 5.10. </b> "
@@ -40,10 +39,6 @@ The system utilizes PostgreSQL. In production, we automate backups and scaling u
    - Configure the security group on port **5432** to only accept traffic from the Backend ECS Service security group.
 6. Click **Create database**.
 
-> [!IMPORTANT]
-> **Screenshot Checkpoint:**
-> * **Screenshot 12:** AWS RDS Databases list displaying the database **trustbite-db-prod** with its status showing as **Available** in green.
-
 ---
 
 ### 3. Step 2: Create Storage Bucket on Amazon S3
@@ -69,7 +64,9 @@ All user-uploaded receipts are stored securely in a private S3 bucket.
 
 > [!IMPORTANT]
 > **Screenshot Checkpoint:**
-> * **Screenshot 13:** AWS S3 Console showing the bucket **trustbite-invoices-production** successfully configured with **Bucket status: Bucket and objects not public**.
+> * **Screenshot 13:** The **Permissions** tab for the development receipt bucket shows **Block all public access: On**, confirming that the bucket and its objects are not publicly accessible.
+
+<img src="/fcj-template/images/5-Workshop/5.10-Deployment/13-s3-bucket-private.png" alt="Amazon S3 Block Public Access enabled for the TrustBite development receipt bucket" style="width: 100%; max-width: 1200px; height: auto;">
 
 ---
 
@@ -95,7 +92,9 @@ The Express backend application is containerized with Docker. We store container
 
 > [!IMPORTANT]
 > **Screenshot Checkpoint:**
-> * **Screenshot 14:** AWS ECR Repositories screen showing the **trustbite-api-prod** repository containing the pushed **latest** image tag.
+> * **Screenshot 14:** The **Images** tab of **trustbite-dev-api** shows successfully pushed images tagged with commit SHAs; the repository uses immutable tags instead of **latest**.
+
+<img src="/fcj-template/images/5-Workshop/5.10-Deployment/14-ecr-api-images.png" alt="Commit SHA tagged Docker images in the trustbite-dev-api Amazon ECR repository" style="width: 100%; max-width: 1200px; height: auto;">
 
 ---
 
@@ -122,7 +121,9 @@ We use serverless containers via **Amazon ECS Fargate** to run the backend API a
 
 > [!IMPORTANT]
 > **Screenshot Checkpoint:**
-> * **Screenshot 15:** AWS ECS Services page showing the service **trustbite-api-service** with status as **Active** and Running tasks as **2 / 2**.
+> * **Screenshot 15:** The AWS ECS Services page shows the three development services **trustbite-dev-api**, **trustbite-dev-web**, and **trustbite-dev-worker** as **Active** on **Fargate**, each with **1 / 1 Tasks running**.
+
+<img src="/fcj-template/images/5-Workshop/5.10-Deployment/15-ecs-services-running.png" alt="Three TrustBite development services active on Amazon ECS with one of one Fargate task running" style="width: 100%; max-width: 1200px; height: auto;">
 
 ---
 
@@ -142,7 +143,3 @@ Expected result (HTTP **200 OK**):
   "aws": "verified"
 }
 ```
-
-> [!IMPORTANT]
-> **Screenshot Checkpoint:**
-> * **Screenshot 16:** Postman response for /health API query to the ALB endpoint returning HTTP **200 OK** and showing operational JSON status.

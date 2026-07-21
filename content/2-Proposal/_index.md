@@ -1,6 +1,5 @@
 ---
 title: "Proposal"
-date: 2024-01-01
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
@@ -56,7 +55,9 @@ Verification results are aggregated into a **Trust Score** — a confidence indi
 
 #### Overall Architecture Diagram
 
-<img src="/fcj-template/images/2-Proposal/aws_architecture.png" alt="AWS Solution Architecture Diagram" style="width: 100%; max-width: 900px; display: block; margin: 1.5rem auto; border-radius: 6px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" />
+<img src="/fcj-template/images/5-Workshop/5.1-Workshop-overview/trustbite-aws-architecture.png" alt="TrustBite deployment architecture showing the AWS networking, compute, data, identity, security, monitoring, and provider services" style="display: block; width: auto; max-width: 100%; height: auto; margin: 1.5rem auto; border-radius: 6px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);" />
+
+<p style="text-align: center; margin-top: -0.75rem;"><em>TrustBite deployment architecture on AWS. Click the diagram to view the full-size version.</em></p>
 
 #### AWS Services Used
 

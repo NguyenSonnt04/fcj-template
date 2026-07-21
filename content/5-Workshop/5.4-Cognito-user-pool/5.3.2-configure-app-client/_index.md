@@ -1,6 +1,5 @@
 ---
 title: "Configure the App Client"
-date: 2024-01-01
 weight: 2
 chapter: false
 pre: " <b> 5.4.2. </b> "
@@ -9,9 +8,13 @@ pre: " <b> 5.4.2. </b> "
 #### Step 1: Verify the App Client
 
 1. In the User Pool, choose **App clients**.
-2. Open `trustbite-mobile-dev`.
+2. Open `trustbite-mobile`.
 3. Confirm that it has no client secret.
 4. Record the **Client ID**.
+
+<img src="/fcj-template/images/5-Workshop/5.4-Cognito-user-pool/05-cognito-mobile-client-details.png" alt="trustbite-mobile App Client details showing no client secret" style="width: 100%; max-width: 1200px; display: block; margin: 1.5rem auto; border-radius: 6px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);" />
+
+<p style="text-align: center; margin-top: -0.75rem;"><em>Checkpoint: <code>trustbite-mobile</code> is a public client and the Client secret field displays “-”.</em></p>
 
 #### Step 2: Create a Cognito domain
 
@@ -23,17 +26,25 @@ pre: " <b> 5.4.2. </b> "
 https://trustbite-dev-<your-id>.auth.ap-southeast-1.amazoncognito.com
 ```
 
+<img src="/fcj-template/images/5-Workshop/5.4-Cognito-user-pool/06-cognito-domain.png" alt="Cognito domain for Managed Login in the Singapore Region" style="width: 100%; max-width: 1200px; display: block; margin: 1.5rem auto; border-radius: 6px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);" />
+
+<p style="text-align: center; margin-top: -0.75rem;"><em>The Cognito domain is assigned to the User Pool's Managed Login.</em></p>
+
 #### Step 3: Configure OAuth 2.0
 
 Configure the App Client:
 
 | Setting | Value |
 | --- | --- |
-| Allowed callback URL | `http://localhost:3000/auth/callback` |
-| Allowed sign-out URL | `http://localhost:3000/logout` |
+| Allowed callback URL | `http://localhost:3000/auth/callback`, `trustbite://auth/callback` |
+| Allowed sign-out URL | `http://localhost:3000` |
 | OAuth grant | Authorization code grant |
-| OpenID Connect scopes | `openid`, `email`, `profile` |
+| OpenID Connect scopes | `openid`, `email`, `phone`, `profile` |
 | Identity provider | Cognito user pool |
+
+<img src="/fcj-template/images/5-Workshop/5.4-Cognito-user-pool/07-cognito-oauth-settings.png" alt="Cognito callback URLs, sign-out URL, Authorization Code Grant, and OpenID Connect scopes" style="width: 100%; max-width: 1200px; display: block; margin: 1.5rem auto; border-radius: 6px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);" />
+
+<p style="text-align: center; margin-top: -0.75rem;"><em>Checkpoint: Managed Login is available with web and mobile callbacks, Authorization Code Grant, and the selected OIDC scopes.</em></p>
 
 Managed Login uses the Authorization Code flow. The application must generate a new `code_verifier` and `code_challenge` for every PKCE request.
 

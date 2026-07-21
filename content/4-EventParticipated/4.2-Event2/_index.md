@@ -1,6 +1,5 @@
 ---
 title: "Event 2"
-date: 2024-01-01
 weight: 2
 chapter: false
 pre: " <b> 4.2. </b> "
@@ -25,7 +24,17 @@ pre: " <b> 4.2. </b> "
 - *AI-Powered Productivity: Workforce Planning For Enterprise*
 - *Building Secure Private MCP Connection with Amazon Quick*
 
-> Speaker names were not provided in the event agenda.
+### Speakers
+
+- **Truong Tran** — AI Solution Sales, Noventiq
+- **Steve Tran** — CTO/Founder, CloudThinker
+- **Trung Vu** — CEO, Revve AI
+- **Anh Dang** — Solution Sales, Noventiq
+- **Nghi Danh** — AI Engineer, Renova Cloud
+- **Kiet Tran** — AI Engineer, AWS Student Builder Group
+- **Bao Phan** — Cloud Engineer, Cloud Kinetics
+- **Nguyen Nguyen** — Cloud Engineer, Cloud Kinetics
+- **Toan Nguyen** — AWS Security Builder
 
 ### Event Agenda
 

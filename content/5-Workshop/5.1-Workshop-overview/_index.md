@@ -1,6 +1,5 @@
 ---
 title: "Architecture Overview"
-date: 2024-01-01
 weight: 1
 chapter: false
 pre: " <b> 5.1. </b> "
@@ -11,7 +10,7 @@ The **TrustBite** backend is built as a **Modular Monolith** to optimize develop
 
 Below is the overall architecture diagram of TrustBite components:
 
-<img src="/fcj-template/images/5-Workshop/5.1-Workshop-overview/diagram2.png" alt="Overall TrustBite System Architecture on AWS" style="width: 100%; max-width: 900px; display: block; margin: 1.5rem auto; border-radius: 6px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" />
+<img src="/fcj-template/images/5-Workshop/5.1-Workshop-overview/trustbite-aws-architecture.png" alt="TrustBite deployment architecture on AWS" style="width: 100%; max-width: 1200px; display: block; margin: 1.5rem auto; border-radius: 6px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);" />
 
 ---
 

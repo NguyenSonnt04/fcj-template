@@ -1,6 +1,5 @@
 ---
 title: "Anti-Fraud Engine & Risk Scoring"
-date: 2024-01-01
 weight: 7
 chapter: false
 pre: " <b> 5.7. </b> "
@@ -31,7 +30,7 @@ export function computeFileHash(buffer) {
 ### 3. Defense Layer 2: GPS Proximity Check (Haversine & PostGIS)
 The system compares the user's GPS coordinates at the time of review submission with the restaurant's actual coordinates in the database.
 
-The spherical distance is calculated using the **Haversine formula** in **receiptVerificationScoring.js** (link: [receiptVerificationScoring.js](file:///C:/My_Project/server/src/services/receiptVerificationScoring.js)):
+The spherical distance is calculated using the **Haversine formula** in `server/src/services/receiptVerificationScoring.js`:
 
 ```javascript
 const EARTH_RADIUS_METERS = 6371000;
@@ -59,8 +58,8 @@ CREATE INDEX idx_restaurants_geo ON restaurants USING Gist(geo);
 ```
 SQL queries leverage **ST_DWithin** and **ST_Distance** functions to perform precise distance calculations utilizing the index:
 ```sql
-SELECT id, name, ST_Distance(geo, ST_MakePoint($1, $2)::geography) as distance 
-FROM restaurants 
+SELECT id, name, ST_Distance(geo, ST_MakePoint($1, $2)::geography) as distance
+FROM restaurants
 WHERE ST_DWithin(geo, ST_MakePoint($1, $2)::geography, $3);
 ```
 
@@ -104,3 +103,5 @@ The **scoreReceipt** function sums up the risk points, and **decideFromScore** d
 > npm run server:test:unit -- tests/unit/receipt/receiptVerificationScoring.test.js
 > ```
 > * **Screenshot 18:** Successful unit test execution showing all Haversine, normalization, Levenshtein, and scoring tests passed.
+
+<img src="/fcj-template/images/5-Workshop/5.7-Anti-Fraud-Engine/18-anti-fraud-unit-tests.png" alt="Successful TrustBite anti-fraud rules and risk scoring unit test results" style="width: 100%; max-width: 1200px; height: auto;">

@@ -226,3 +226,19 @@ div.notices.info p {
   border-top: 30px solid #fd9827;
   background: #fff2db;
 }
+
+/* Keep UI screenshots legible when they are scaled inside workshop pages. */
+#body-inner img:not(.inline) {
+  display: block;
+  width: auto !important;
+  max-width: 100% !important;
+  height: auto !important;
+  margin-right: auto;
+  margin-left: auto;
+  image-rendering: auto !important;
+}
+
+#body-inner a[data-featherlight="image"] {
+  display: block;
+  cursor: zoom-in;
+}

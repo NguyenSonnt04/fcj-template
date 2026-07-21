@@ -1,6 +1,5 @@
 ---
 title: "Bộ máy chống gian lận & Chấm điểm rủi ro"
-date: 2024-01-01
 weight: 7
 chapter: false
 pre: " <b> 5.7. </b> "
@@ -31,7 +30,7 @@ export function computeFileHash(buffer) {
 ### 3. Lớp phòng thủ 2: Đối chiếu khoảng cách GPS (Haversine & PostGIS)
 Hệ thống đối sánh tọa độ GPS của người dùng tại thời điểm đăng bài đánh giá với tọa độ vị trí thực tế của nhà hàng đã được xác minh trong cơ sở dữ liệu.
 
-Khoảng cách hình cầu giữa hai điểm được tính toán theo công thức **Haversine** tại tệp **receiptVerificationScoring.js** (đường dẫn: [receiptVerificationScoring.js](file:///C:/My_Project/server/src/services/receiptVerificationScoring.js)):
+Khoảng cách hình cầu giữa hai điểm được tính toán theo công thức **Haversine** tại `server/src/services/receiptVerificationScoring.js`:
 
 ```javascript
 const EARTH_RADIUS_METERS = 6371000;
@@ -59,8 +58,8 @@ CREATE INDEX idx_restaurants_geo ON restaurants USING Gist(geo);
 ```
 Truy vấn SQL sử dụng hàm **ST_DWithin** và **ST_Distance** giúp tính toán khoảng cách không gian địa lý chính xác và tận dụng index hiệu quả:
 ```sql
-SELECT id, name, ST_Distance(geo, ST_MakePoint($1, $2)::geography) as distance 
-FROM restaurants 
+SELECT id, name, ST_Distance(geo, ST_MakePoint($1, $2)::geography) as distance
+FROM restaurants
 WHERE ST_DWithin(geo, ST_MakePoint($1, $2)::geography, $3);
 ```
 
@@ -104,3 +103,5 @@ Sau khi tính toán các tín hiệu (bao gồm cả tuổi hóa đơn và hành
 > npm run server:test:unit -- tests/unit/receipt/receiptVerificationScoring.test.js
 > ```
 > * **Ảnh chụp màn hình 18:** Kết quả chạy test thành công hiển thị các case kiểm thử thuật toán khoảng cách Haversine, chuẩn hóa tên quán, tính khoảng cách Levenshtein và chấm điểm rủi ro đều vượt qua (**passed**).
+
+<img src="/fcj-template/images/5-Workshop/5.7-Anti-Fraud-Engine/18-anti-fraud-unit-tests.png" alt="Kết quả unit test các quy tắc chống gian lận và chấm điểm rủi ro của TrustBite đều vượt qua" style="width: 100%; max-width: 1200px; height: auto;">

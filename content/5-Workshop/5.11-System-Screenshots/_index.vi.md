@@ -1,70 +1,77 @@
 ---
 title: "Ảnh chụp giao diện hệ thống"
-date: 2024-01-01
 weight: 11
 chapter: false
 pre: " <b> 5.11. </b> "
 ---
 
-### 1. Overview of the Admin Portal Interface
-Cổng quản trị của hệ thống **TrustBite** được xây dựng trên nền tảng **Next.js** kết hợp **TailwindCSS**, mang lại giao diện hiện đại, trực quan, hỗ trợ tối ưu việc vận hành hệ thống xác thực và chống gian lận.
+### 1. Tổng quan giao diện Admin Portal
+Cổng quản trị của hệ thống **TrustBite** được xây dựng trên nền tảng **Next.js** kết hợp **TailwindCSS**, mang lại giao diện hiện đại, trực quan và hỗ trợ quản trị viên vận hành các chức năng quản lý, đánh giá và giám sát hệ thống.
 
-Dưới đây là mô tả chi tiết các phân hệ giao diện trong hệ thống kèm theo các mốc ảnh chụp minh chứng:
+Dưới đây là các màn hình chính của Admin Portal kèm ảnh chụp từ môi trường triển khai thực tế.
 
 ---
 
 ### 2. Giao diện Tổng quan (Dashboard Overview)
-Trang điều hành trung tâm hiển thị sức khỏe thời gian thực của hệ thống, bao gồm trạng thái API (Trực tuyến/Ngoại tuyến), tổng số lượng nhà hàng hoạt động, và trạng thái quyền hạn bảo mật của tài khoản admin đang đăng nhập.
+Trang điều hành trung tâm hiển thị tình trạng hoạt động của API, tổng số nhà hàng, số mô-đun đã kết nối và các mô-đun đang chờ API. Khu vực bên dưới mô tả mức độ sẵn sàng của từng chức năng quản trị.
 
-Giao diện được phân chia rõ ràng theo các nhóm chức năng ở thanh menu bên trái (Sidebar):
-*   **Chính:** Tổng quan Dashboard.
-*   **Quản lý:** Danh mục Nhà hàng & Người dùng.
-*   **Tin cậy:** Kiểm duyệt Đánh giá & Hàng đợi Xác minh Hóa đơn.
-*   **Hệ thống:** Nhật ký vận hành (Audit log) & Giám sát sức khỏe API.
+Giao diện được phân chia rõ ràng theo các nhóm chức năng ở thanh menu bên trái:
+
+* **Chính:** Tổng quan Dashboard.
+* **Quản lý:** Nhà hàng và Người dùng.
+* **Tin cậy:** Đánh giá và Xác minh.
+* **Hệ thống:** Nhật ký và Giám sát.
+
+<img src="/fcj-template/images/5-Workshop/5.11-System-Screenshots/19-admin-dashboard.png" alt="Trang điều hành trung tâm TrustBite hiển thị trạng thái API, số nhà hàng và mức độ kết nối của các mô-đun quản trị" style="width: 100%; max-width: 1200px; height: auto; display: block; margin: 1.5rem auto;">
 
 > [!IMPORTANT]
-> **Mốc ảnh chụp minh chứng:**
-> * **Ảnh chụp màn hình 19:** Giao diện trang chủ quản trị **Admin Portal** hiển thị Dashboard điều hành trung tâm và danh sách trạng thái trực tuyến của các module dịch vụ.
+> **Ảnh chụp màn hình 19:** Dashboard trung tâm của Admin Portal cho thấy API đang trực tuyến, tổng số nhà hàng và trạng thái của các mô-đun quản trị.
 
 ---
 
 ### 3. Giao diện Quản lý Nhà hàng (Restaurant Management)
-Trang hiển thị danh sách toàn bộ nhà hàng trên hệ thống, cho phép tìm kiếm theo tên, lọc theo trạng thái hiển thị (Hoạt động, Bản nháp, Tạm ngưng, Đóng cửa) và xem điểm số tin cậy (Trust Score) được tính toán tự động.
+Trang quản lý nhà hàng cho phép quản trị viên mở hồ sơ chi tiết và cập nhật các thông tin vận hành, bao gồm:
 
-Khi bấm vào chi tiết một nhà hàng, hệ thống hiển thị hộp thoại chỉnh sửa thông tin cho phép thay đổi:
-*   Tên, Địa chỉ, Số điện thoại.
-*   Tọa độ **Kinh độ (Longitude)** và **Vĩ độ (Latitude)** dùng để đối chiếu GPS chống gian lận.
-*   Quản lý danh sách hình ảnh nhà hàng (Thiết lập ảnh đại diện chính).
+* Tên, địa chỉ, số điện thoại và trạng thái nhà hàng.
+* Hai trường **Vĩ độ (Latitude)** và **Kinh độ (Longitude)** dùng cho đối chiếu vị trí GPS. Trong ảnh minh chứng, hai trường này đang để trống và có thể được bổ sung khi hoàn thiện dữ liệu nhà hàng.
+* Mô tả, danh mục và lý do chỉnh sửa.
+* Ảnh đại diện cùng thư viện ảnh chi tiết của nhà hàng.
+
+<img src="/fcj-template/images/5-Workshop/5.11-System-Screenshots/20-restaurant-management.png" alt="Hộp thoại chi tiết nhà hàng TrustBite với thông tin cơ bản, trường vĩ độ và kinh độ đang để trống, cùng khu vực quản lý ảnh nhà hàng" style="width: 100%; max-width: 1200px; height: auto; display: block; margin: 1.5rem auto;">
 
 > [!IMPORTANT]
-> **Mốc ảnh chụp minh chứng:**
-> * **Ảnh chụp màn hình 20:** Giao diện danh sách nhà hàng và Hộp thoại chỉnh sửa thông tin chi tiết nhà hàng bao gồm các trường nhập tọa độ vĩ độ/kinh độ GPS.
+> **Ảnh chụp màn hình 20:** Hộp thoại chỉnh sửa chi tiết nhà hàng hiển thị các trường thông tin, tọa độ GPS đang để trống và khu vực quản lý ảnh đại diện, ảnh chi tiết.
 
 ---
 
 ### 4. Giao diện Quản lý Người dùng (User Management)
-Trang hiển thị danh sách tất cả các tài khoản đăng ký trên hệ thống kèm số điện thoại, tên hiển thị, điểm kinh nghiệm (EXP), cấp bậc (Rank) và vai trò phân quyền.
+Trang quản lý người dùng hiển thị danh sách tài khoản và cho phép mở hồ sơ chi tiết của từng người dùng. Trong hộp thoại chi tiết, quản trị viên có thể:
 
-Hộp thoại phân quyền cho phép admin gán vai trò nhanh:
-*   **USER**: Người dùng cuối viết đánh giá.
-*   **MERCHANT**: Chủ quán để quản trị cửa hàng.
-*   **ADMIN**: Quản trị viên hệ thống có toàn quyền.
+* Xem và cập nhật họ tên, số điện thoại và ngày sinh.
+* Theo dõi trạng thái hoạt động, hạng và điểm kinh nghiệm (EXP).
+* Nhập lý do quản trị trước khi lưu thay đổi liên quan đến hồ sơ hoặc trạng thái.
+* Khóa tài khoản khi cần thiết; thao tác này thu hồi phiên hoạt động và vô hiệu hóa hiệu lực của refresh token theo mô tả trên giao diện.
+
+<img src="/fcj-template/images/5-Workshop/5.11-System-Screenshots/21-user-account-management.png" alt="Hộp thoại chi tiết tài khoản người dùng TrustBite với thông tin hồ sơ, trạng thái hoạt động và chức năng khóa tài khoản" style="width: 100%; max-width: 1200px; height: auto; display: block; margin: 1.5rem auto;">
 
 > [!IMPORTANT]
-> **Mốc ảnh chụp minh chứng:**
-> * **Ảnh chụp màn hình 21:** Giao diện trang quản lý người dùng hiển thị bảng danh sách tài khoản kèm theo giao diện gán vai trò bảo mật Cognito.
+> **Ảnh chụp màn hình 21:** Giao diện chi tiết người dùng phục vụ chỉnh sửa hồ sơ, kiểm tra trạng thái và khóa tài khoản.
 
 ---
 
-### 5. Giao diện Hàng đợi Xác minh Hóa đơn (Receipt Verification Queue)
-Đây là màn hình cốt lõi nhất của bộ máy chống gian lận, nơi hiển thị tất cả các bài đánh giá ẩm thực đi kèm hóa đơn đang ở trạng thái **PENDING_ADMIN_REVIEW** (chờ rà soát do điểm rủi ro trung bình từ 31-60).
+### 5. Giao diện Quản lý Đánh giá (Review Management)
+Trang quản lý đánh giá tổ chức nội dung theo từng nhà hàng. Quản trị viên có thể tìm kiếm và chọn nhà hàng ở danh sách bên trái, sau đó theo dõi các đánh giá công khai ở khu vực nội dung chính.
 
-Giao diện chi tiết rà soát hiển thị:
-1.  Ảnh chụp hóa đơn gốc do người dùng tải lên.
-2.  Bảng kết quả trích xuất văn bản OCR tự động từ AWS Textract (Tên quán trên hóa đơn, mã hóa đơn, tổng tiền).
-3.  **Điểm rủi ro gian lận (Fraud Risk Score)** cùng danh sách chi tiết các cờ cảnh báo (ví dụ: *Lệch GPS vị trí ghi nhận > 200m*, *Tài khoản mới tạo dưới 24 giờ*,...).
-4.  Nút quyết định duyệt (**APPROVE** / **REJECT** / **REFERENCE ONLY**) kèm ô nhập lý do bắt buộc để lưu vào nhật ký hệ thống.
+Màn hình cung cấp:
+
+1. Tổng số đánh giá phù hợp, điểm trung bình hiện tại và điểm tin cậy của nhà hàng.
+2. Điểm tổng của từng đánh giá và điểm theo các tiêu chí như món ăn, giá cả, phục vụ và không gian.
+3. Trạng thái của đánh giá, chẳng hạn **Tham khảo**, cùng ngày đăng và thống kê phản hồi.
+4. Bộ lọc trạng thái để quản trị viên lựa chọn nhóm đánh giá cần xem.
+
+<img src="/fcj-template/images/5-Workshop/5.11-System-Screenshots/22-review-management.png" alt="Trang quản lý đánh giá TrustBite hiển thị danh sách nhà hàng, điểm tổng hợp, điểm theo tiêu chí, trạng thái đánh giá và bộ lọc" style="width: 100%; max-width: 1200px; height: auto; display: block; margin: 1.5rem auto;">
 
 > [!IMPORTANT]
-> **Mốc ảnh chụp minh chứng:**
-> * **Ảnh chụp màn hình 22:** Giao diện hàng đợi rà soát hóa đơn hiển thị chi tiết ảnh hóa đơn, kết quả trích xuất Textract OCR và bảng phân tích điểm rủi ro gian lận của hệ thống.
+> **Ảnh chụp màn hình 22:** Giao diện quản lý đánh giá theo nhà hàng với điểm tổng hợp, điểm chi tiết, trạng thái **Tham khảo** và bộ lọc trạng thái.
+
+---

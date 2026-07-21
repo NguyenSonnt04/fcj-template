@@ -1,6 +1,5 @@
 ---
 title: "Receipt Processing with S3 & AWS Textract"
-date: 2024-01-01
 weight: 6
 chapter: false
 pre: " <b> 5.6. </b> "
@@ -26,7 +25,7 @@ Browser/Mobile app ──(Upload receipt image)──> API Gateway / Express API
 ---
 
 ### 2. Implementing S3 Receipt Storage Service
-The code handling S3 storage integration is located in **s3ReceiptStorageService.js** (link: [s3ReceiptStorageService.js](file:///C:/My_Project/server/src/services/s3ReceiptStorageService.js)).
+The code handling S3 storage integration is located at `server/src/services/s3ReceiptStorageService.js`.
 
 It utilizes the **@aws-sdk/client-s3** library to upload receipt images to a private bucket, and generates short-term signed URLs for secure access:
 
@@ -58,7 +57,7 @@ It utilizes the **@aws-sdk/client-s3** library to upload receipt images to a pri
 ### 3. Extracting Receipt Text via AWS Textract OCR
 When a task is picked up from the receipt processing queue (BullMQ), a background worker calls AWS Textract to perform OCR.
 
-The code coordinating the AWS Textract API call is implemented in **ocrService.js** (link: [ocrService.js](file:///C:/My_Project/server/src/services/ocrService.js)) using the AWS SDK:
+The code coordinating the AWS Textract API call is implemented at `server/src/services/ocrService.js` using the AWS SDK:
 
 ```javascript
 import { AnalyzeDocumentCommand } from '@aws-sdk/client-textract';
@@ -92,3 +91,5 @@ Once extracted, the backend maps the raw text blocks to retrieve key attributes:
 > npm run server:test:unit -- tests/unit/storage/objectStorage.test.js tests/unit/receipt/textractProvider.test.js
 > ```
 > * **Screenshot 17:** Successful unit test execution showing S3 Object Storage and AWS Textract provider tests passed.
+
+<img src="/fcj-template/images/5-Workshop/5.6-Receipt-OCR-S3/17-s3-textract-unit-tests.png" alt="Successful TrustBite S3 Object Storage and AWS Textract unit test results" style="width: 100%; max-width: 1200px; height: auto;">
