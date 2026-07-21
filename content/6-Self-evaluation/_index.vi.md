@@ -5,10 +5,6 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 Trong suốt thời gian thực tập tại **Công ty TNHH Amazon Web Services Việt Nam** từ **27/04/2026** đến **30/07/2026**, tôi đã có cơ hội học hỏi, rèn luyện và áp dụng kiến thức đã được trang bị tại trường vào môi trường làm việc thực tế.  
 Tôi đã tham gia chương trình **Workforce Bootcamp - First Cloud AI Journey** và phát triển dự án **TrustBite**, qua đó cải thiện kỹ năng **điện toán đám mây AWS, lập trình, phân tích, kiểm thử, viết báo cáo, giao tiếp và làm việc nhóm**.  
 

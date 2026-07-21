@@ -5,10 +5,6 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
-
 During my internship at **Amazon Web Services Vietnam Company Limited** from **April 27, 2026** to **July 30, 2026**, I had the opportunity to learn, practice, and apply the knowledge acquired in school to a real-world working environment.  
 I participated in the **Workforce Bootcamp - First Cloud AI Journey** program and developed the **TrustBite** project, through which I improved my skills in **AWS cloud computing, programming, analysis, testing, reporting, communication, and teamwork**.  
 
