@@ -94,6 +94,18 @@ Attendees took a short break before the final two sessions on LLM behavior and m
 - Discussed operational ROI, an implementation roadmap, and future development.
 - Concluded with questions and answers.
 
+### Event Attendance Evidence
+
+The following two photographs were taken while I attended Event 1.
+
+![Workshop exercises presented during Event 1](/fcj-template/images/4-EventParticipated/4.1-Event1/event1-workshop-exercises.png)
+
+*Figure 1: Workshop content covering authentication, Bedrock Guardrails, IAM permission boundaries, MCP, and Terraform.*
+
+![Startup data session presented during Event 1](/fcj-template/images/4-EventParticipated/4.1-Event1/event1-startup-data-session.png)
+
+*Figure 2: A session explaining the key data dimensions used to evaluate startups.*
+
 ### Knowledge and Experience Gained
 
 #### Context-Aware AI Applications
