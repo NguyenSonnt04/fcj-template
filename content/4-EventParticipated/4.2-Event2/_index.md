@@ -78,6 +78,18 @@ pre: " <b> 4.2. </b> "
 - Demonstrated Amazon Quick private connectivity through a VPC.
 - Shared a demonstration and practical implementation insights.
 
+### Event Attendance Evidence
+
+The following two photographs were taken while I attended Event 2.
+
+![AWS DevOps Agent session at Event 2](/fcj-template/images/4-EventParticipated/4.2-Event2/event2-aws-devops-agent-session.png)
+
+*Figure 1: The “AWS DevOps Agent: Your Always-Available Operations Teammate” session.*
+
+![CloudThinker session at Event 2](/fcj-template/images/4-EventParticipated/4.2-Event2/event2-cloudthinker-session.png)
+
+*Figure 2: A presentation of the CloudThinker solution and its observability capabilities.*
+
 ### Knowledge and Experience Gained
 
 #### Autonomous Incident Response

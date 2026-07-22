@@ -78,6 +78,18 @@ pre: " <b> 4.2. </b> "
 - Hướng dẫn cấu hình kết nối riêng tư qua VPC cho Amazon Quick.
 - Trình diễn giải pháp và chia sẻ kinh nghiệm triển khai trong tình huống thực tế.
 
+### Hình ảnh minh chứng tham dự sự kiện
+
+Hai hình ảnh dưới đây được ghi lại trực tiếp trong thời gian tôi tham dự Event 2.
+
+![Phiên trình bày AWS DevOps Agent tại Event 2](/fcj-template/images/4-EventParticipated/4.2-Event2/event2-aws-devops-agent-session.png)
+
+*Hình 1: Phiên chia sẻ “AWS DevOps Agent: Your Always-Available Operations Teammate”.*
+
+![Phiên trình bày CloudThinker tại Event 2](/fcj-template/images/4-EventParticipated/4.2-Event2/event2-cloudthinker-session.png)
+
+*Hình 2: Phần trình bày giải pháp CloudThinker và khả năng observability tại sự kiện.*
+
 ### Kiến Thức Và Kinh Nghiệm Đạt Được
 
 #### Tự động hóa phản ứng sự cố
