@@ -24,8 +24,9 @@ chapter: false
 
 &emsp; **Thời gian thực tập:** Từ ngày 27/04/2026 đến ngày 30/07/2026
 
-
-
+<div class="student-avatar">
+  <img src="/fcj-template/images/student-avatar.png" alt="Ảnh chân dung Nguyễn Đạo Sơn" loading="eager">
+</div>
 
 ### Nội dung báo cáo
 

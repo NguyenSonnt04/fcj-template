@@ -26,6 +26,9 @@ chapter: false
 
 &emsp; **Internship Duration:** From 04/27/2026 to 07/30/2026
 
+<div class="student-avatar">
+  <img src="/fcj-template/images/student-avatar.png" alt="Portrait of Nguyen Dao Son" loading="eager">
+</div>
 
 ### Report Content
 
